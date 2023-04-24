@@ -1,0 +1,52 @@
+name: NodeJs codecheks and tests
+on:
+  pull_request:
+    branches:
+      - 'master'
+jobs:
+  codechecks:
+    strategy:
+      matrix:
+        package: ['rate-limiter']
+        check: ['typescript', 'eslint']
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+      - name: Use NodeJs 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install deps
+        working-directory: ./nodejs/${{matrix.package}}
+        run: |
+          yarn install 
+      - name: Codecheks
+        working-directory: ./nodejs/${{matrix.package}}
+        run: |
+          yarn check:${{matrix.check}}
+  tests:
+    strategy:
+      matrix:
+        package: ['rate-limiter']
+        test: ['unit']
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+      - name: Use NodeJs 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install deps
+        working-directory: ./nodejs/${{matrix.package}}
+        run: |
+          yarn install 
+      - name: Run tests
+        working-directory: ./nodejs/${{matrix.package}}
+        run: |
+          yarn test:${{matrix.test}}

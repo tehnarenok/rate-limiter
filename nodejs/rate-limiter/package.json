@@ -1,0 +1,38 @@
+{
+  "name": "@tehdev/rate-limiter",
+  "version": "0.0.3",
+  "description": "Simple abstart rate limiter",
+  "main": "dst/index.js",
+  "types": "dst/index.d.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tehnarenok/rate-limiter/nodejs/rate-limiter"
+  },
+  "author": "tehnarenok (Mikhail Ershov)",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test:unit": "jest --runInBand",
+    "build": "tsc src/index.ts --outDir dst --declaration",
+    "check:typescript": "tsc -p ./tsconfig.json --skipLibCheck --diagnostics --noEmit",
+    "check:eslint": "eslint --max-warnings 0 src"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "@types/node": "^18.16.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.39.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-node": "^11.1.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {},
+  "files": [
+    "dst/**/*"
+  ]
+}
