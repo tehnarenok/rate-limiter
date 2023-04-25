@@ -8,7 +8,7 @@ This is abstract simple rate limiter for outgoing requests. Over this class you 
 
 This is local impl for `LockClient`
 
-```typesctipt
+```typescript
 import { LockClient } from '@tehdev/rate-limiter';
 
 let currentId: string | undefined;
