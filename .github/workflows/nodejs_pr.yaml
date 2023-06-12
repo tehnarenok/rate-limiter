@@ -10,7 +10,7 @@ jobs:
   codechecks:
     strategy:
       matrix:
-        package: ['rate-limiter']
+        package: ['rate-limiter', 'rate-limiter-redis']
         check: ['typescript', 'eslint']
     runs-on: ubuntu-latest
     permissions:
