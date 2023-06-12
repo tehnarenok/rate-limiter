@@ -4,11 +4,33 @@ This is abstract simple rate limiter for outgoing requests. Over this class you 
 
 ## Implementations
 
+You can create your rate-limit which is inherited from `RateLimier` and you should create class which is inherited from LockClient.
+You can see examples.
+
+Ready implementations:
+
+- [with redis](https://www.npmjs.com/package/@tehdev/rate-limiter-redis)
+
+## Rates config
+
+You can create configuration rate-limiter with default `rps` or with `rps` by time
+  
+Example:
+```typescript
+const rate = new RateConfig(10, 1000);
+
+rate.addTime(20, [
+    { hours: 9 },
+    { hours: 11 }
+]);
+```
+Default rps is `10` but from 9 AM to 11 AM rps is `20`
+
 ## LockClient example \[local\]
 
 This is local impl for `LockClient`
 
-```typesctipt
+```typescript
 import { LockClient } from '@tehdev/rate-limiter';
 
 let currentId: string | undefined;

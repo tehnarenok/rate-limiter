@@ -50,12 +50,21 @@ export class RateConfig {
     private _default: Rate;
     private _byTime: Array<TimeRate> = [];
 
+    /**
+     * @param rate Default rate
+     * @param window Defult window in ms
+     */
     constructor(rate: number, window: number) {
         this._validateRate({ rate, window });
 
         this._default = { rate, window };
     }
 
+    /**
+     * Add time range with specific rate limit for configuration
+     * @param rate Rate for time interval
+     * @param time Time interval
+     */
     addTime(rate: number, time: [Time, Time]): void {
         this._validateRate({ rate, window: this._default.window });
         this._validateInterval(...time);
@@ -66,6 +75,10 @@ export class RateConfig {
         });
     }
 
+    /**
+     * Add time range with specific rate limit for configuration
+     * @param rates Array of time intervals with rate
+     */
     addTimes(rates: Array<TimeRate>): void {
         rates.forEach(({ rate, time }) => this.addTime(rate, time));
     }
@@ -136,9 +149,9 @@ export class RateConfig {
     }
 
     private _isTimeInInterval(time: Time, interval: [Time, Time], notSplit = false): boolean {
-        // случай когда интервал 23:00:00 - 9:00:00
-        // в этом случае разбиваем интервал на два и проверяем что time есть в одном
-        // notSplit - защита от рекурсий
+        // case 23:00 - 6:00
+        // for this case split to two cases 23:00-23:59:59 and 00:00-6:00
+        // notSplit - recursion protection
         if (this._compareTimes(interval[0], interval[1]) === CompareResult.MORE) {
             if (notSplit) {
                 return false;
@@ -188,14 +201,24 @@ export class RateConfig {
         return timeConfig?.rate ? { ...this._default, rate: timeConfig.rate } : this._default;
     }
 
+    /**
+     * Calculate rate limit for current date/time
+     * @returns rate and window in ms
+     */
     getCurrentRate(): Rate {
         return this._findRateByTime();
     }
 
+    /**
+     * @returns Default window in ms
+     */
     getWindow(): number {
         return this._default.window;
     }
 
+    /**
+     * @returns Default rate limit (rate and window in ms)
+     */
     getDefaultRate(): Rate {
         return { ...this._default };
     }

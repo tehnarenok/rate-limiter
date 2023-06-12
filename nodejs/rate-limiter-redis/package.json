@@ -1,0 +1,38 @@
+{
+  "name": "@tehdev/rate-limiter-redis",
+  "version": "0.0.3",
+  "author": "tehnarenok (Mikhail Ershov)",
+  "main": "dst/index.js",
+  "types": "dst/index.d.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tehnarenok/rate-limiter/tree/master/nodejs/rate-limiter-redis"
+  },
+  "scripts": {
+    "build": "tsc src/index.ts --outDir dst --declaration"
+  },
+  "dependencies": {
+    "@tehdev/rate-limiter": "0.0.4",
+    "redlock": "4.2.0"
+  },
+  "devDependencies": {
+    "@types/jest": "29.5.1",
+    "@types/node": "18.16.0",
+    "@types/redlock": "4.0.4",
+    "@typescript-eslint/eslint-plugin": "5.59.0",
+    "@typescript-eslint/parser": "5.59.0",
+    "eslint": "8.39.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jest": "27.2.1",
+    "eslint-plugin-node": "11.1.0",
+    "jest": "29.5.0",
+    "typescript": "5.0.4"
+  },
+  "peerDependencies": {
+    "ioredis": "5.3.2"
+  },
+  "files": [
+    "dst/**/*"
+  ]
+}
