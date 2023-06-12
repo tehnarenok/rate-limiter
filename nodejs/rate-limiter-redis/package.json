@@ -10,7 +10,9 @@
     "url": "https://github.com/tehnarenok/rate-limiter/tree/master/nodejs/rate-limiter-redis"
   },
   "scripts": {
-    "build": "tsc src/index.ts --outDir dst --declaration"
+    "build": "tsc src/index.ts --outDir dst --declaration",
+    "check:typescript": "tsc -p ./tsconfig.json --skipLibCheck --diagnostics --noEmit",
+    "check:eslint": "eslint --max-warnings 0 src"
   },
   "dependencies": {
     "@tehdev/rate-limiter": "0.0.4",
