@@ -1,4 +1,4 @@
-import Client, { RedisOptions } from 'ioredis';
+import Client, { RedisOptions, Redis } from 'ioredis';
 import Redlock, { Lock, Options as RedLockOptions } from 'redlock';
 
 import { LockClient, RateLimier, RateConfig, Context, Options } from '@tehdev/rate-limiter';
@@ -10,7 +10,7 @@ class LockClientRedis extends LockClient {
     private _master;
 
     constructor(
-        redis: RedisOptions | Client,
+        redis: RedisOptions | Redis,
         masterResource: string,
         options: Partial<RedLockOptions> = {}
     ) {
@@ -71,7 +71,7 @@ export type ExtendedOptions = {
 export class RateLimiterRedis extends RateLimier {
     _lockClient: LockClient;
 
-    private _redisClient: Client;
+    private _redisClient: Redis;
     private _listPrefix: string;
 
     constructor(
