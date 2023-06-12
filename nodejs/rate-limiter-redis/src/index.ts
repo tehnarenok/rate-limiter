@@ -1,5 +1,5 @@
 import Client, { RedisOptions } from 'ioredis';
-import Redlock, { Lock, Settings as RedLockOptions } from 'redlock';
+import Redlock, { Lock, Options as RedLockOptions } from 'redlock';
 
 import { LockClient, RateLimier, RateConfig, Context, Options } from '@tehdev/rate-limiter';
 
@@ -18,6 +18,8 @@ class LockClientRedis extends LockClient {
 
         const redisClient = redis instanceof Client ? redis : new Client(redis);
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         this._redLock = new Redlock([redisClient], options);
         this._master = masterResource;
     }
@@ -55,7 +57,7 @@ class LockClientRedis extends LockClient {
     }
 
     async _unlock(): Promise<void> {
-        await this._curerntLock?.release();
+        await this._curerntLock?.unlock();
     }
 }
 
@@ -133,3 +135,7 @@ export class RateLimiterRedis extends RateLimier {
         }
     }
 }
+
+export { RateConfig };
+export { Context };
+export { Options };
