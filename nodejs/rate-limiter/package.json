@@ -1,12 +1,12 @@
 {
   "name": "@tehdev/rate-limiter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple abstart rate limiter",
   "main": "dst/index.js",
   "types": "dst/index.d.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tehnarenok/rate-limiter/nodejs/rate-limiter"
+    "url": "https://github.com/tehnarenok/rate-limiter/tree/master/nodejs/rate-limiter"
   },
   "author": "tehnarenok (Mikhail Ershov)",
   "license": "MIT",

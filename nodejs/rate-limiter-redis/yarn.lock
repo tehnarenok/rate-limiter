@@ -640,8 +640,10 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
-"@tehdev/rate-limiter@0.0.3":
-  version "0.0.3"
+"@tehdev/rate-limiter@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@tehdev/rate-limiter/-/rate-limiter-0.0.4.tgz"
+  integrity sha512-Kpo6AiDvVj0e9HOmXguVFinZfLAFeJZbT1BlLBZV08o5oqGSgwAJ8lroyRksvD3mJYm/lMFeqIwADRE/oTIvoA==
 
 "@types/babel__core@^7.1.14":
   version "7.20.0"
