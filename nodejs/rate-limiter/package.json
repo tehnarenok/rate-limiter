@@ -10,6 +10,12 @@
   },
   "author": "tehnarenok (Mikhail Ershov)",
   "license": "MIT",
+  "keywords": [
+    "rate limiter",
+    "rate",
+    "limiting",
+    "async"
+  ],
   "private": false,
   "scripts": {
     "test:unit": "jest --runInBand",

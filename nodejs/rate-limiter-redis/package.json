@@ -1,10 +1,18 @@
 {
   "name": "@tehdev/rate-limiter-redis",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "tehnarenok (Mikhail Ershov)",
   "main": "dst/index.js",
   "types": "dst/index.d.js",
   "license": "MIT",
+  "keywords": [
+    "rate limiter",
+    "redis",
+    "rate",
+    "limiting",
+    "async",
+    "distibuted"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/tehnarenok/rate-limiter/tree/master/nodejs/rate-limiter-redis"
