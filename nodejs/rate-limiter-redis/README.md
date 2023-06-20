@@ -5,7 +5,8 @@ This package is implementaion of an [abstract rate limiter](https://www.npmjs.co
 ## How use
 
 1. Install package `npm i @tehdev/rate-limiter-redis`
-2. Initialize rate limiter
+2. Install redis package `npm i ioredis`
+3. Initialize rate limiter
 
 ```typescript
 import { RateLimiterRedis, RateConfig } from "@tehdev/rate-limiter-redis";
